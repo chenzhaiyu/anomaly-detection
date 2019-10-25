@@ -1,1 +1,3 @@
 *.pyc
+*.ckpt
+.DS_STORE

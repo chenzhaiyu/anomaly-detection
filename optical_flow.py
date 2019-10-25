@@ -82,9 +82,10 @@ def detect_motion(first_frame_path, current_frame_path,thresh,updateThresh=False
     # convert Kartesian coordinates to polar coordinates
     mag, ang = cv2.cartToPolar(flow[..., 0], flow[..., 1])
     hsv[..., 0] = ang * 180 / np.pi / 2
-    hsv[..., 2] = cv2.normalize(mag, None, 0, 255, cv2.NORM_MINMAX)
+    hsv[..., 2] = cv2.normalize(mag, None, 0, 150, cv2.NORM_MINMAX)
     rgb = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
-    cv2.imwrite('result/flow.png', rgb)
+    new_rgb=cv2.resize(rgb,(1300,int(1100.0/rgb.shape[1]*rgb.shape[0])),interpolation=cv2.INTER_LINEAR)
+    cv2.imwrite('result/flow.png', new_rgb)
     # cv2.imwrite('examples/car2Warped_new.jpg', image_to_write[:, :, ::-1] * 255)
 
     if np.any(change_map>thresh):

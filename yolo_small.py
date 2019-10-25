@@ -4,6 +4,7 @@ import cv2
 import time
 import sys
 
+
 class YOLO:
     from_file = None
     to_image_file = 'test/output.jpg'
