@@ -6,6 +6,8 @@
   ## Dependencies
   * Numpy
   * Tensorflow
+  * Opencv-python
+  * PIL
   * Pygame
   * Paho-mqtt
   * Kivy
